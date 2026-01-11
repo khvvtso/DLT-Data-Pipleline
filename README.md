@@ -2,6 +2,55 @@
 
 A DLT-based data pipeline that demonstrates explicit knowledge engineering with semantic conflict resolution, late-arriving data handling, and agent-ready outputs.
 
+
+This project is designed to run fully locally with no external services required.
+
+Prerequisites
+	•	macOS / Linux
+	•	Python 3.10+
+	•	Git
+
+Verify Python: python3 --version
+
+🚀 Run Locally (End-to-End)
+# 1. Clone the repository
+git clone https://github.com/khvvtso/DLT-Data-Pipleline.git
+cd DLT-Data-Pipleline
+
+# 2. Create virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# 3. Install dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
+
+# 4. Run the pipeline
+python dlt_pipeline.py
+
+✅ Expected Output
+==================================================
+Running Customer Master Pipeline
+==================================================
+Extracted X records
+Completed CustomerMasterPipeline
+
+==================================================
+Running Transaction Pipeline
+==================================================
+Extracted Y records
+Completed TransactionPipeline
+
+Pipeline execution completed successfully!
+
+🔍 Verify Local Results
+python - <<EOF
+import duckdb, glob
+db = glob.glob(".dlt/**/*.duckdb", recursive=True)[0]
+con = duckdb.connect(db)
+print(con.execute("SHOW TABLES").fetchall())
+EOF
+
 ## Architecture Overview
 
 ```
