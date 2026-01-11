@@ -1,0 +1,6 @@
+customer_id,first_name,last_name,email,signup_date,status
+1,John,Doe,john.doe@example.com,2023-01-15,active
+2,Jane,Smith,jane.smith@example.com,2023-02-20,ACTIVE
+3,Robert,Johnson,robert.j@example.com,2023-03-10,inactive
+4,Emily,Davis,emily.d@example.com,2023-04-05,Active
+5,Michael,Brown,michael.b@example.com,2023-05-12,active
